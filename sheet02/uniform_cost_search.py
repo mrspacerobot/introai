@@ -14,7 +14,7 @@ class UniformCostSearch(Search):
 
     # enqueue initial state
     frontier = PriorityQueue()
-    frontier.put((1,SearchNode(p.initial_state, None, 0)))
+    frontier.put((0,SearchNode(p.initial_state, None, 0)))
     self.generated += 1
     reached = {p.initial_state}
 
@@ -36,7 +36,7 @@ class UniformCostSearch(Search):
           reached.add(succ)
 
           # enqueue successor
-          frontier.put((succ_node.g, succ_node))
+          frontier.put((new_g, succ_node))
           self.generated += 1
 
     # no solution found
